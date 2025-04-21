@@ -1,8 +1,10 @@
+import Header from "./components/Header"
+
 function App() {
 
   return (
     <>
-      <h1>Placeholder Title!</h1>
+      <Header />
     </>
   )
 }

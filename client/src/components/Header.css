@@ -1,0 +1,17 @@
+header {
+    padding: 1rem;
+    background-color: #242424;
+    border-bottom: 1px solid #a77304;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 0 20px 20px;
+}
+  
+header p {
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
