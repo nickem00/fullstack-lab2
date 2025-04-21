@@ -3,7 +3,7 @@ import { createEmployee, getAllEmployees } from "../controllers/EmployeeControll
 
 const router = express.Router();
 
-router.post("/employees", createEmployee);
-router.get("/employees", getAllEmployees);
+router.post("/", createEmployee);
+router.get("/", getAllEmployees);
 
 export default router;
