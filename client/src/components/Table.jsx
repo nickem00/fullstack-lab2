@@ -13,6 +13,8 @@ function Table() {
 
     useEffect(() => {
         async function fetchAssignments() {
+            console.log(`Fetching assignments at ${new Date().toLocaleTimeString()}`);
+            
             try {
                 const response = await fetch("http://localhost:5000/api/project-assignments");
                 if (!response.ok) {
@@ -29,6 +31,13 @@ function Table() {
         }
 
         fetchAssignments();
+
+        
+        const intervalId = setInterval(() => {
+            fetchAssignments();
+        }, 60000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     if (loading) {
