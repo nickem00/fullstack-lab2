@@ -94,7 +94,7 @@ function Table() {
                             <td>{assignment.employee_id.full_name}</td>
                             <td>{assignment.project_code.project_name}</td>
                             <td>{assignment.project_code.project_description}</td>
-                            <td>{new Date(assignment.start_date).toLocaleDateString()}</td>
+                            <td className="start-date">{new Date(assignment.start_date).toLocaleDateString()}</td>
                         </tr>
                     ))}
                 </tbody>
