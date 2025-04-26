@@ -24,7 +24,6 @@ table {
 table th {
     margin: 0;
     padding: 0;
-    /* removed individual border-bottom */
 }
 
 thead th {
@@ -63,7 +62,6 @@ table td.start-date {
     font-size: 0.98em;
 }
 
-/* Gör tabellen responsiv på små skärmar */
 @media (max-width: 600px) {
     .table-container {
         padding: 0rem 0.2rem 1rem;

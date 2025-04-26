@@ -1,5 +1,8 @@
 import "./Header.css"
 
+/**
+ * Header component that displays the application title and author name
+ */
 function Header() {
     return (
         <header>

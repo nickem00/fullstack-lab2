@@ -2,6 +2,9 @@ import ProjectAssignment from "../models/ProjectAssignment.js"
 import Employee from "../models/Employee.js";
 import Project from "../models/Project.js";
 
+/**
+ * Creates a new project assignment after validating employee and project existence
+ */
 export const createProjectAssignment = async (req, res, next) => {
     try {
         const { employee_id, project_code, start_date } = req.body;
@@ -10,7 +13,7 @@ export const createProjectAssignment = async (req, res, next) => {
             return res.status(400).json({ message: "All fields are required" })
         }
 
-    
+        // Validate that referenced entities exist in the database
         const employee = await Employee.findOne({ employee_id })
         if (!employee) {
             return res.status(404).json({ message: "Employee not found" })
@@ -36,8 +39,13 @@ export const createProjectAssignment = async (req, res, next) => {
     }
 }
 
+/**
+ * Retrieves all project assignments with populated employee and project data
+ */
 export const getAllProjectAssignments = async (req, res, next) => {
     try {
+        // Populate references to get full employee and project details
+        // Excludes sensitive or unnecessary fields from the response
         const allAssignments = await ProjectAssignment
             .find()
             .populate("employee_id", "-hashed_password -__v")
