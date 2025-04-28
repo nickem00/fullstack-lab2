@@ -48,6 +48,8 @@ export const getAllProjectAssignments = async (req, res, next) => {
         // Excludes sensitive or unnecessary fields from the response
         const allAssignments = await ProjectAssignment
             .find()
+            .sort({ start_date: -1})
+            .limit(5)
             .populate("employee_id", "-hashed_password -__v")
             .populate("project_code", "-__v");
 

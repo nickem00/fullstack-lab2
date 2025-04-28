@@ -102,14 +102,14 @@ function Table() {
             <table>
                 <thead>
                     <tr>
+                        <th onClick={() => handleSort("employee_id.employee_id")}>
+                            Employee ID {sortField === "employee_id.employee_id" && (sortOrder === "asc" ? "↑" : "↓")}
+                        </th>
                         <th onClick={() => handleSort("employee_id.full_name")}>
                             Employee Name {sortField === "employee_id.full_name" && (sortOrder === "asc" ? "↑" : "↓")}
                         </th>
                         <th onClick={() => handleSort("project_code.project_name")}>
                             Project Name {sortField === "project_code.project_name" && (sortOrder === "asc" ? "↑" : "↓")}
-                        </th>
-                        <th onClick={() => handleSort("project_code.project_description")}>
-                            Project Description {sortField === "project_code.project_description" && (sortOrder === "asc" ? "↑" : "↓")}
                         </th>
                         <th onClick={() => handleSort("start_date")}>
                             Start Date {sortField === "start_date" && (sortOrder === "asc" ? "↑" : "↓")}
@@ -119,9 +119,9 @@ function Table() {
                 <tbody>
                     {sortedAssignments.map((assignment) => (
                         <tr key={assignment._id}>
+                            <td>{assignment.employee_id.employee_id}</td>
                             <td>{assignment.employee_id.full_name}</td>
                             <td>{assignment.project_code.project_name}</td>
-                            <td>{assignment.project_code.project_description}</td>
                             <td className="start-date">{new Date(assignment.start_date).toLocaleDateString()}</td>
                         </tr>
                     ))}
